@@ -7,7 +7,7 @@ const ROOT_URL = `http://localhost:3090/signin`;
 export function signinUser({ email, password }) {
   return function(dispatch) {
     // submit email/password to server
-    axios.post({ROOT_URL}, { email, password })
+    axios.post(ROOT_URL, { email, password })
       .then(response => {
         // if request is good,
         // - update state to indicate user is auth'ed
