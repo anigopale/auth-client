@@ -50,3 +50,14 @@ export function signupUser({ email, password }) {
         .catch(response => dispatch(authError(response.data.error)));
   }
 }
+
+export function fetchMessage() {
+  return function(dispatch) {
+    axios.get(`http://localhost:3090`, {
+      headers: { authorization: localStorage.getItem('token')}
+    })
+      .then( response => {
+        console.log(response.data);
+      });
+  }
+}
