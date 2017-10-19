@@ -8,9 +8,12 @@ class Feature extends Component {
   }
   render() {
     return (
-      <div>this is a feature</div>
-    )
+      <div>this message is response of a get request: {this.props.message}</div>
+    );
   }
 }
+function mapStateToProps(state) {
+  return { message: state.auth.message };
+}
 
-export default connect(null, actions)(Feature);
+export default connect(mapStateToProps, actions)(Feature);
