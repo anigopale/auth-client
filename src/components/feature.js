@@ -7,3 +7,5 @@ class Feature extends Component {
     )
   }
 }
+
+export default Feature;
