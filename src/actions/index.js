@@ -38,3 +38,15 @@ export function signoutUser() {
 
   return { type: UNAUTH_USER }
 }
+
+export function signupUser({ email, password }) {
+  return function(dispatch) {
+      axios.post(`http://localhost:3090/signup`, {email, password})
+        .then(respose => {
+          dispatch({ type: AUTH_USER });
+          localStorage.setItem('token', response.data.token);
+          browserHistory.push('/feature');
+        })
+        .catch(response => dispatch(authError(response.data.error)));
+  }
+}
